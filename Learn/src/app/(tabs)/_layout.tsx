@@ -1,9 +1,9 @@
 import { Tabs } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
 import { StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useAppTheme } from "@/theme/ThemeProvider";
+import TabIcon from "@/components/navigation/TabIcon";
 
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
@@ -69,10 +69,11 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? "home" : "home-outline"}
-              size={23}
+            <TabIcon
+              focused={focused}
               color={color}
+              focusedIcon="home"
+              unfocusedIcon="home-outline"
             />
           ),
         }}
@@ -83,10 +84,11 @@ export default function TabLayout() {
         options={{
           title: "Tracker",
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? "analytics" : "analytics-outline"}
-              size={23}
+            <TabIcon
+              focused={focused}
               color={color}
+              focusedIcon="analytics"
+              unfocusedIcon="analytics-outline"
             />
           ),
         }}
@@ -97,10 +99,11 @@ export default function TabLayout() {
         options={{
           title: "People",
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? "people" : "people-outline"}
-              size={23}
+            <TabIcon
+              focused={focused}
               color={color}
+              focusedIcon="people"
+              unfocusedIcon="people-outline"
             />
           ),
         }}
@@ -111,10 +114,11 @@ export default function TabLayout() {
         options={{
           title: "Blog",
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? "newspaper" : "newspaper-outline"}
-              size={23}
+            <TabIcon
+              focused={focused}
               color={color}
+              focusedIcon="newspaper"
+              unfocusedIcon="newspaper-outline"
             />
           ),
         }}
@@ -125,10 +129,11 @@ export default function TabLayout() {
         options={{
           title: "Forum",
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? "chatbubbles" : "chatbubbles-outline"}
-              size={23}
+            <TabIcon
+              focused={focused}
               color={color}
+              focusedIcon="chatbubbles"
+              unfocusedIcon="chatbubbles-outline"
             />
           ),
         }}
@@ -139,16 +144,18 @@ export default function TabLayout() {
         options={{
           title: "Chat",
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? "chatbox" : "chatbox-outline"}
-              size={23}
+            <TabIcon
+              focused={focused}
               color={color}
+              focusedIcon="chatbox"
+              unfocusedIcon="chatbox-outline"
             />
           ),
         }}
       />
 
       {/* Hidden routes */}
+
       <Tabs.Screen
         name="study"
         options={{
